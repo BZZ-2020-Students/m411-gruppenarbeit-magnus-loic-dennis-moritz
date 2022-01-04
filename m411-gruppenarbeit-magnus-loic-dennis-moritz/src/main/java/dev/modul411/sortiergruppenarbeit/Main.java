@@ -1,6 +1,7 @@
 package dev.modul411.sortiergruppenarbeit;
 
-import dev.modul411.sortiergruppenarbeit.importfile.ReadFile;
+import dev.modul411.sortiergruppenarbeit.importexport.ExportFile;
+import dev.modul411.sortiergruppenarbeit.importexport.ImportFile;
 
 /**
  * Main Class
@@ -16,14 +17,17 @@ public class Main {
     private int[] thousandDigits;
 
     public Main() {
-        ReadFile readFile = new ReadFile();
-        tenDigits = readFile.readLinesFromFile(pathPrefix + "10Digits.dat");
-        hundredDigits = readFile.readLinesFromFile(pathPrefix + "100Digits.dat");
-        thousandDigits = readFile.readLinesFromFile(pathPrefix + "1000Digits.dat");
+        ImportFile importFile = new ImportFile();
+        tenDigits = importFile.readLinesFromFile(pathPrefix + "10Digits.dat");
+        hundredDigits = importFile.readLinesFromFile(pathPrefix + "100Digits.dat");
+        thousandDigits = importFile.readLinesFromFile(pathPrefix + "1000Digits.dat");
+
+        ExportFile exportFile = new ExportFile();
+        
     }
 
     public void compareSortingAlgorithm() {
-        //TODO sort and messaure the files using the three arrays read from the files
+        //TODO sort the values using the three arrays read from the files
     }
 
 

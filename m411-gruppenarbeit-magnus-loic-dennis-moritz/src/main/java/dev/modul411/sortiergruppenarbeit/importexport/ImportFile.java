@@ -1,5 +1,4 @@
-package dev.modul411.sortiergruppenarbeit.importfile;
-
+package dev.modul411.sortiergruppenarbeit.importexport;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,9 +6,14 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.stream.Stream;
 
-public class ReadFile {
+/**
+ * @Author Moritz Gasbichler
+ * @Since 2022-01-04
+ * @Version 1.0
+ */
+public class ImportFile {
 
-    public ReadFile() {
+    public ImportFile() {
 
     }
 

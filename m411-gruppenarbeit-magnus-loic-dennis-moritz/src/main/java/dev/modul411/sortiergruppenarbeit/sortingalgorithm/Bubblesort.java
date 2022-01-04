@@ -2,6 +2,11 @@ package dev.modul411.sortiergruppenarbeit.sortingalgorithm;
 
 import java.util.Date;
 
+/**
+ * @Author Magnus Götz
+ * @Since 2022-01-04
+ * @Version 1.0
+ */
 public class Bubblesort {
 
     private int[] unsortedArray;

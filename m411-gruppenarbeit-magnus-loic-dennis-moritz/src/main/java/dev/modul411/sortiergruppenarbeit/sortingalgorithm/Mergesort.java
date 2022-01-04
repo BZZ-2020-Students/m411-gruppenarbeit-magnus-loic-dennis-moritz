@@ -3,21 +3,11 @@ package dev.modul411.sortiergruppenarbeit.sortingalgorithm;
 import java.util.Date;
 
 /**
- * <<<<<<< HEAD:m411-gruppenarbeit-magnus-loic-dennis-moritz/src/main/java/dev/modul411/sortiergruppenarbeit/sortingalgorithm/Mergesort.java
- *
  * @Author Magnus Götz
  * @Since 2022-01-04
  * @Version 1.0
  */
-=======
-        *Mergesort Class
-        *
-        *@author Magnus Götz
-        *@version 1.0
-        *@since 2022-01-04
-        */
 
-        >>>>>>>main:m411-gruppenarbeit-magnus-loic-dennis-moritz/src/main/java/dev/modul411/sortiergruppenarbeit/Mergesort.java
 
 public class Mergesort {
     private int[] unsortedArray;

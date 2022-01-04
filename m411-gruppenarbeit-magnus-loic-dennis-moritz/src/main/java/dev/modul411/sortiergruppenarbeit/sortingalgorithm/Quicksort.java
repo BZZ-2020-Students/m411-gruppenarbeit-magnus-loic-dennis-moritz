@@ -3,21 +3,10 @@ package dev.modul411.sortiergruppenarbeit.sortingalgorithm;
 import java.util.Date;
 
 /**
- * <<<<<<< HEAD:m411-gruppenarbeit-magnus-loic-dennis-moritz/src/main/java/dev/modul411/sortiergruppenarbeit/sortingalgorithm/Quicksort.java
- *
  * @Author Magnus Götz
  * @Since 2022-01-04
  * @Version 1.0
  */
-=======
-        *Quicksort Class
-        *
-        *@author Magnus Götz
-        *@version 1.0
-        *@since 2022-01-04
-        */
-
-        >>>>>>>main:m411-gruppenarbeit-magnus-loic-dennis-moritz/src/main/java/dev/modul411/sortiergruppenarbeit/Quicksort.java
 
 public class Quicksort {
 

@@ -1,6 +1,5 @@
 package dev.modul411.sortiergruppenarbeit;
 
-import dev.modul411.sortiergruppenarbeit.importexport.ExportFile;
 import dev.modul411.sortiergruppenarbeit.importexport.ImportFile;
 import dev.modul411.sortiergruppenarbeit.sortingalgorithm.Bubblesort;
 
@@ -18,25 +17,10 @@ public class Main {
     private int[] thousandDigits;
 
     public Main() {
-<<<<<<<HEAD
         ImportFile importFile = new ImportFile();
         tenDigits = importFile.readLinesFromFile(pathPrefix + "10Digits.dat");
         hundredDigits = importFile.readLinesFromFile(pathPrefix + "100Digits.dat");
         thousandDigits = importFile.readLinesFromFile(pathPrefix + "1000Digits.dat");
-
-        ExportFile exportFile = new ExportFile();
-        
-=======
-        ReadFile readFile = new ReadFile();
-<<<<<<<HEAD
-
-
-                =======
->>>>>>>main
-                tenDigits = readFile.readLinesFromFile(pathPrefix + "10Digits.dat");
-        hundredDigits = readFile.readLinesFromFile(pathPrefix + "100Digits.dat");
-        thousandDigits = readFile.readLinesFromFile(pathPrefix + "1000Digits.dat");
->>>>>>>main
     }
 
     public void compareSortingAlgorithm() {

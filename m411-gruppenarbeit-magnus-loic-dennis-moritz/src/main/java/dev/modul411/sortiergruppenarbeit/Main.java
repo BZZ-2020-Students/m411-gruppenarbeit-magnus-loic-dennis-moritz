@@ -21,20 +21,18 @@ public class Main {
         tenDigits = importFile.readLinesFromFile(pathPrefix + "10Digits.dat");
         hundredDigits = importFile.readLinesFromFile(pathPrefix + "100Digits.dat");
         thousandDigits = importFile.readLinesFromFile(pathPrefix + "1000Digits.dat");
+        compareSortingAlgorithm();
     }
 
     public void compareSortingAlgorithm() {
         //TODO sort the values using the three arrays read from the files
+        int[] unsortedArray = {432324, 234234, 235, 32523, 534, 643, 6, 3256, 3476, 5346356, 4235, 6};
+        Bubblesort b = new Bubblesort();
+        long[] arr = b.run(thousandDigits);
     }
 
 
     public static void main(String[] args) {
-        new Main().run();
-    }
-
-    public void run() {
-        int[] unsortedArray = {432324, 234234, 235, 32523, 534, 643, 6, 3256, 3476, 5346356, 4235, 6};
-        Bubblesort b = new Bubblesort();
-        long[] arr = b.run(unsortedArray);
+        new Main();
     }
 }

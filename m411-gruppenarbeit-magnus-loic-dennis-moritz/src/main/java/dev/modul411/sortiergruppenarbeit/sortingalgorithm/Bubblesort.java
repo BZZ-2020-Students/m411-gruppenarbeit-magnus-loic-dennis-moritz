@@ -22,7 +22,6 @@ public class Bubblesort {
         long[] measure = new long[3];
         this.unsortedArray = unsortedArray;
 
-
         //Measure memory
         Runtime runtime = Runtime.getRuntime();
         long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();

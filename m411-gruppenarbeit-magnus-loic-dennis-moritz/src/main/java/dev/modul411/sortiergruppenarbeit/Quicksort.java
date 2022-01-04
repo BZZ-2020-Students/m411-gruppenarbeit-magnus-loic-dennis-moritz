@@ -12,7 +12,6 @@ public class Quicksort {
         long[] measure = new long[3];
         this.unsortedArray = unsortedArray;
 
-
         //Measure memory
         Runtime runtime = Runtime.getRuntime();
         long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
@@ -27,8 +26,8 @@ public class Quicksort {
         measure[0] = new Date().getTime() - startTime;
         long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
 
-        System.out.println("Memory increased: " + (usedMemoryAfter-usedMemoryBefore) + " byte");
-        measure[1] = usedMemoryAfter-usedMemoryBefore;
+        System.out.println("Memory increased: " + (usedMemoryAfter - usedMemoryBefore) + " byte");
+        measure[1] = usedMemoryAfter - usedMemoryBefore;
 
         //Measure comparisons
         System.out.println("How many comparisons: " + count);

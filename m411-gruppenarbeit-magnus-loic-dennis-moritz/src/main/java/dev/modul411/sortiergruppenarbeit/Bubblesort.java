@@ -1,15 +1,24 @@
 package dev.modul411.sortiergruppenarbeit;
 
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Random;
+
+/**
+ * Bubblesort Class
+ *
+ * @author Magnus Götz
+ * @version 1.0
+ * @since 2022-01-04
+ */
 
 public class Bubblesort {
 
     private int[] unsortedArray;
     private int count = 0;
 
-    public long[] Bubblesort(int[] unsortedArray) {
+    public Bubblesort() {
+    }
+
+    public long[] run(int[] unsortedArray) {
         long[] measure = new long[3];
         this.unsortedArray = unsortedArray;
 

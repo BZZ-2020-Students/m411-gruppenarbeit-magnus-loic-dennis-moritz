@@ -2,11 +2,22 @@ package dev.modul411.sortiergruppenarbeit;
 
 import java.util.Date;
 
+/**
+ * Mergesort Class
+ *
+ * @author Magnus Götz
+ * @version 1.0
+ * @since 2022-01-04
+ */
+
 public class Mergesort {
     private int[] unsortedArray;
     private int count = 0;
 
-    public long[] Mergesort(int[] unsortedArray) {
+    public Mergesort(){
+    }
+
+    public long[] run(int[] unsortedArray) {
         long[] measure = new long[3];
         this.unsortedArray = unsortedArray;
 

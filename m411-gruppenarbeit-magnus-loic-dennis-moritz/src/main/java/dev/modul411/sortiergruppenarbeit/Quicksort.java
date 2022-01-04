@@ -1,14 +1,24 @@
 package dev.modul411.sortiergruppenarbeit;
 
 import java.util.Date;
-import java.util.Random;
+
+/**
+ * Quicksort Class
+ *
+ * @author Magnus Götz
+ * @version 1.0
+ * @since 2022-01-04
+ */
 
 public class Quicksort {
 
     private int[] unsortedArray;
     private int count = 0;
 
-    public long[] Quicksort(int[] unsortedArray) {
+    public Quicksort(){
+    }
+
+    public long[] run(int[] unsortedArray) {
         long[] measure = new long[3];
         this.unsortedArray = unsortedArray;
 

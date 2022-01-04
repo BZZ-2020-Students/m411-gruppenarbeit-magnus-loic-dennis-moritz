@@ -1,7 +1,6 @@
-package dev.modul411.sortiergruppenarbeit;
+package dev.modul411.sortiergruppenarbeit.sortingalgorithm;
 
 import java.util.Date;
-import java.util.Random;
 
 public class Quicksort {
 
@@ -36,27 +35,28 @@ public class Quicksort {
     }
 
     private void sort(int leftPos, int rightPos) {
-        if (leftPos < rightPos){
+        if (leftPos < rightPos) {
             int middlePos = split(leftPos, rightPos);
-            sort(leftPos, middlePos-1);
+            sort(leftPos, middlePos - 1);
             sort(middlePos + 1, rightPos);
         }
     }
-    public Quicksort(int leftPos, int rightPos){
-        if (leftPos < rightPos){
+
+    public Quicksort(int leftPos, int rightPos) {
+        if (leftPos < rightPos) {
             int middlePos = split(leftPos, rightPos);
-            new Quicksort(leftPos, middlePos-1);
+            new Quicksort(leftPos, middlePos - 1);
             new Quicksort(middlePos + 1, rightPos);
         }
     }
 
-    public int split(int leftPos, int rightPos){
+    public int split(int leftPos, int rightPos) {
         int pivotPos = leftPos;
-        while (leftPos < rightPos){
+        while (leftPos < rightPos) {
             count++;
-            if (unsortedArray[rightPos] > unsortedArray[pivotPos]){
+            if (unsortedArray[rightPos] > unsortedArray[pivotPos]) {
                 rightPos--;
-            }else{
+            } else {
                 if (unsortedArray[leftPos] <= unsortedArray[pivotPos])
                     leftPos++;
                 else
@@ -67,7 +67,7 @@ public class Quicksort {
         return rightPos;
     }
 
-    public void swap(int leftPos, int rightPos){
+    public void swap(int leftPos, int rightPos) {
         int temp = unsortedArray[rightPos];
         unsortedArray[rightPos] = unsortedArray[leftPos];
         unsortedArray[leftPos] = temp;

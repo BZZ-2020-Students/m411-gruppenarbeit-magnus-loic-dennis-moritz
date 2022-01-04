@@ -1,14 +1,16 @@
-package dev.modul411.sortiergruppenarbeit;
+package dev.modul411.sortiergruppenarbeit.sortingalgorithm;
 
 import java.util.Date;
 
-public class Mergesort {
+public class Bubblesort {
+
     private int[] unsortedArray;
     private int count = 0;
 
-    public long[] Mergesort(int[] unsortedArray) {
+    public long[] Bubblesort(int[] unsortedArray) {
         long[] measure = new long[3];
         this.unsortedArray = unsortedArray;
+
 
         //Measure memory
         Runtime runtime = Runtime.getRuntime();
@@ -18,7 +20,7 @@ public class Mergesort {
         long startTime;
         startTime = new Date().getTime();
 
-        int[] sortedARR = loop(unsortedArray);
+        sort();
 
         System.out.println("Dauer der Sortierung: " + (new Date().getTime() - startTime) + "ms");
         measure[0] = new Date().getTime() - startTime;
@@ -30,32 +32,24 @@ public class Mergesort {
         //Measure comparisons
         System.out.println("How many comparisons: " + count);
         measure[2] = count;
-
         return measure;
     }
 
-    public int[] loop(int[] unsortedArray) {
-        for (int start = 0; start < unsortedArray.length; ++start) {
-            count++;
-            int minIndex = findTheMiniIndex(unsortedArray, start);
-            swap(unsortedArray, minIndex, start);
-        }
-        return unsortedArray;
-    }
-
-    public int findTheMiniIndex(int[] arr, int start) {
-        int index = start;
-        for (int i = start + 1; i < arr.length; ++i) {
-            if (arr[index] > arr[i]) {
-                index = i;
+    private void sort() {
+        boolean finish;
+        for (int a = 0; a < unsortedArray.length - 1; a++) {
+            finish = true;
+            for (int b = 0; b < unsortedArray.length - a - 1; b++) {
+                count++;
+                if (unsortedArray[b] > unsortedArray[b + 1]) {
+                    int temp = unsortedArray[b];
+                    unsortedArray[b] = unsortedArray[b + 1];
+                    unsortedArray[b + 1] = temp;
+                    finish = false;
+                }
             }
+            if (finish)
+                break;
         }
-        return index;
-    }
-
-    public void swap(int[] swapValOfArr, int minIndex, int start) {
-        int temp = swapValOfArr[minIndex];
-        swapValOfArr[minIndex] = swapValOfArr[start];
-        swapValOfArr[start] = temp;
     }
 }

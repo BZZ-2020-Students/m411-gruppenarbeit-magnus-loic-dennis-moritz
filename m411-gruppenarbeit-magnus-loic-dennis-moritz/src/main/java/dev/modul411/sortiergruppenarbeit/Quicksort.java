@@ -4,22 +4,36 @@ import java.util.Date;
 import java.util.Random;
 
 public class Quicksort {
-    static int[] unsortedArray;
 
+    private int[] unsortedArray;
+    private int count = 0;
 
-    public static void main(String[] args) {
-        long startTime;
-        Quicksort programm = new Quicksort();
-        startTime = new Date().getTime();
-        programm.sort(0, unsortedArray.length - 1);
-        System.out.println("Dauer der Sortierung: " + (new Date().getTime() - startTime) + "ms");;
-    }
-
-    Quicksort(){
-    }
-
-    Quicksort(int[] unsortedArray) {
+    public long[] Quicksort(int[] unsortedArray) {
+        long[] measure = new long[3];
         this.unsortedArray = unsortedArray;
+
+
+        //Measure memory
+        Runtime runtime = Runtime.getRuntime();
+        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
+
+        //Measure time
+        long startTime;
+        startTime = new Date().getTime();
+
+        sort(0, unsortedArray.length - 1);
+
+        System.out.println("Dauer der Sortierung: " + (new Date().getTime() - startTime) + "ms");
+        measure[0] = new Date().getTime() - startTime;
+        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+
+        System.out.println("Memory increased: " + (usedMemoryAfter-usedMemoryBefore) + " byte");
+        measure[1] = usedMemoryAfter-usedMemoryBefore;
+
+        //Measure comparisons
+        System.out.println("How many comparisons: " + count);
+        measure[2] = count;
+        return measure;
     }
 
     private void sort(int leftPos, int rightPos) {
@@ -40,6 +54,7 @@ public class Quicksort {
     public int split(int leftPos, int rightPos){
         int pivotPos = leftPos;
         while (leftPos < rightPos){
+            count++;
             if (unsortedArray[rightPos] > unsortedArray[pivotPos]){
                 rightPos--;
             }else{

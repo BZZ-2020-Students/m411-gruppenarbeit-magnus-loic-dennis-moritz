@@ -12,13 +12,14 @@ public class Bubblesort {
     public long[] Bubblesort(int[] unsortedArray) {
         long[] measure = new long[3];
         this.unsortedArray = unsortedArray;
-        long startTime;
+
 
         //Measure memory
         Runtime runtime = Runtime.getRuntime();
         long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
 
         //Measure time
+        long startTime;
         startTime = new Date().getTime();
 
         sort();

@@ -7,15 +7,11 @@ import java.util.Random;
 public class Bubblesort {
 
     private int[] unsortedArray;
-    private long[] measure = new long[3];
     private int count = 0;
 
-
-    public static void main(String[] args) {
-        new Bubblesort().run();
-    }
-
-    public void run(){
+    public long[] Bubblesort(int[] unsortedArray) {
+        long[] measure = new long[3];
+        this.unsortedArray = unsortedArray;
         long startTime;
 
         //Measure memory
@@ -31,18 +27,12 @@ public class Bubblesort {
         measure[0] = new Date().getTime() - startTime;
         long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
 
-        System.out.println("Memory increased:" + (usedMemoryAfter-usedMemoryBefore));
+        System.out.println("Memory increased: " + (usedMemoryAfter-usedMemoryBefore) + " byte");
         measure[1] = usedMemoryAfter-usedMemoryBefore;
 
+        //Measure comparisons
+        System.out.println("How many comparisons: " + count);
         measure[2] = count;
-    }
-
-    public Bubblesort(){
-    }
-
-    public long[] Bubblesort(int[] unsortedArray) {
-        this.unsortedArray = unsortedArray;
-
         return measure;
     }
 

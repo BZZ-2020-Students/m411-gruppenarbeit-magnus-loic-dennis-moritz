@@ -12,10 +12,23 @@ import java.io.IOException;
  * @Version 1.0
  */
 public class ExportFile {
-    public ExportFile() {
+    private String filemame;
+    private String[] bubblesortValues;
+    private String[] mergesortValues;
+    private String[] quicksortValues;
+    public ExportFile(String filename) {
+        this.filemame = filename;
+    }
+    public ExportFile(String filename, String[] bubblesortValues, String[] mergesortValues, String[] quicksortValues) {
+        this.filemame = filename;
+        this.bubblesortValues = bubblesortValues;
+        this.mergesortValues = mergesortValues;
+        this.quicksortValues = quicksortValues;
+    }
+    public void writeInCsvFile(){
         //TODO Get real data not just testdata
         System.out.println("!! EXPORT JUST WORKING WITH TEST DATA !!");
-        File file = new File("exportFile.csv");
+        File file = new File(filemame);
         try {
             // create FileWriter object with file as parameter
             FileWriter outputfile = new FileWriter(file);
@@ -24,20 +37,27 @@ public class ExportFile {
             CSVWriter writer = new CSVWriter(outputfile);
 
             // adding header to csv
-            String[] header = {"Name", "Class", "Marks"};
+            String[] header = {"Sorting algorithm", "Memory used", "Comparisons", "Time needed"};
             writer.writeNext(header);
 
             // add data to csv
-            String[] data1 = {"Aman", "10", "620"};
-            writer.writeNext(data1);
-            String[] data2 = {"Suraj", "10", "630"};
-            writer.writeNext(data2);
+            writer.writeNext(bubblesortValues);
+            writer.writeNext(mergesortValues);
+            writer.writeNext(quicksortValues);
 
             // closing writer connection
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getFilemame() {
+        return filemame;
+    }
+
+    public void setFilemame(String filemame) {
+        this.filemame = filemame;
     }
 
 }

@@ -1,5 +1,6 @@
 package dev.modul411.sortiergruppenarbeit;
 
+import dev.modul411.sortiergruppenarbeit.importexport.ExportFile;
 import dev.modul411.sortiergruppenarbeit.importexport.ImportFile;
 import dev.modul411.sortiergruppenarbeit.sortingalgorithm.Bubblesort;
 
@@ -22,6 +23,9 @@ public class Main {
         hundredDigits = importFile.readLinesFromFile(pathPrefix + "100Digits.dat");
         thousandDigits = importFile.readLinesFromFile(pathPrefix + "1000Digits.dat");
         compareSortingAlgorithm();
+        ExportFile exportFile = new ExportFile("exportFile.csv", new String[]{"Bubblesort", "5GB", "100000", "5s"},new String[]{"Mergesort", "10MB", "120000", "5ms"},new String[]{"Quicksort", "10Byte", "50000", "2ms"});
+        exportFile.writeInCsvFile();
+
     }
 
     public void compareSortingAlgorithm() {

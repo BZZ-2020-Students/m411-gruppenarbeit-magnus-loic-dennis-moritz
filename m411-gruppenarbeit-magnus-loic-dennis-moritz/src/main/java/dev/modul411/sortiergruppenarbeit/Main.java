@@ -22,10 +22,10 @@ public class Main {
     private int[] thousandDigits;
 
     public Main() {
-        ImportFile importFile = new ImportFile();
-        tenDigits = importFile.readLinesFromFile(pathPrefix + "10Digits.dat");
-        hundredDigits = importFile.readLinesFromFile(pathPrefix + "100Digits.dat");
-        thousandDigits = importFile.readLinesFromFile(pathPrefix + "1000Digits.dat");
+//        ImportFile importFile = new ImportFile();
+//        tenDigits = importFile.readLinesFromFile(pathPrefix + "10Digits.dat");
+//        hundredDigits = importFile.readLinesFromFile(pathPrefix + "100Digits.dat");
+//        thousandDigits = importFile.readLinesFromFile(pathPrefix + "1000Digits.dat");
         compareSortingAlgorithm();
         ArrayList<String[]> values = new ArrayList<>();
         values.add(new String[]{"Bubblesort", "10", "5GB", "1000", "5s"});
@@ -46,14 +46,16 @@ public class Main {
     public void compareSortingAlgorithm() {
         //TODO sort the values using the three arrays read from the files
         int[] sr = {432324, 234234, 235, 32523, 534, 64533, 6, 3256, 3476, 5346356, 4235, 6, 23, 324, 234, 343,324,32423424,32423423,3432,4351,3613455,145,4636154,63164356,17438547,874563456,32423,3122315};
+        int[] sr1 = {432324, 234234, 235, 32523, 534, 64533, 6, 3256, 3476, 5346356, 4235, 6, 23, 324, 234, 343,324,32423424,32423423,3432,4351,3613455,145,4636154,63164356,17438547,874563456,32423,3122315};
+        int[] sr2 = {432324, 234234, 235, 32523, 534, 64533, 6, 3256, 3476, 5346356, 4235, 6, 23, 324, 234, 343,324,32423424,32423423,3432,4351,3613455,145,4636154,63164356,17438547,874563456,32423,3122315};
+
         Bubblesort b = new Bubblesort();
         Mergesort m = new Mergesort();
         Quicksort q = new Quicksort();
-//        long[] arr = b.run(s);
-        long[] arr2 = m.run(sr);
-//        long[] arr3 = q.run(s);
+        long[] arr = b.run(sr);
+        long[] arr2 = m.run(sr1);
+        long[] arr3 = q.run(sr2);
 
-        System.out.println(arr2[0]);
     }
 
 

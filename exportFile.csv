@@ -1,0 +1,4 @@
+"Sorting algorithm","Memory used","Comparisons","Time needed"
+"Bubblesort","5GB","100000","5s"
+"Mergesort","10MB","120000","5ms"
+"Quicksort","10Byte","50000","2ms"

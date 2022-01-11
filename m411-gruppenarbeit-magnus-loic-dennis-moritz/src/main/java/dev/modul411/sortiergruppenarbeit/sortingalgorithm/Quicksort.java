@@ -30,13 +30,16 @@ public class Quicksort {
         Instant startTimeInstant = Instant.now().truncatedTo(ChronoUnit.MICROS);
         long startTime = startTimeInstant.getNano();
 
+        //sort
         sort(0, unsortedArray.length - 1);
 
+        //End time
         Instant endTimeInstant = Instant.now().truncatedTo(ChronoUnit.MICROS);
         long endTime = endTimeInstant.getNano();
         System.out.println("Dauer der Sortierung: " + (endTime - startTime) + " mikrosekunden");
         measure[0] = endTime - startTime;
 
+        //End memory
         long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
         System.out.println("Memory increased: " + (usedMemoryAfter - usedMemoryBefore) + " byte");
         measure[1] = usedMemoryAfter - usedMemoryBefore;

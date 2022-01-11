@@ -3,6 +3,7 @@ package dev.modul411.sortiergruppenarbeit;
 import dev.modul411.sortiergruppenarbeit.importexport.ExportFile;
 import dev.modul411.sortiergruppenarbeit.importexport.ImportFile;
 import dev.modul411.sortiergruppenarbeit.sortingalgorithm.Bubblesort;
+import dev.modul411.sortiergruppenarbeit.sortingalgorithm.Mergesort;
 import dev.modul411.sortiergruppenarbeit.sortingalgorithm.Quicksort;
 
 /**
@@ -31,9 +32,15 @@ public class Main {
 
     public void compareSortingAlgorithm() {
         //TODO sort the values using the three arrays read from the files
-        int[] unsortedArray = {432324, 234234, 235, 32523, 534, 643, 6, 3256, 3476, 5346356, 4235, 6};
+        int[] sr = {432324, 234234, 235, 32523, 534, 64533, 6, 3256, 3476, 5346356, 4235, 6, 23, 324, 234, 343,324,32423424,32423423,3432,4351,3613455,145,4636154,63164356,17438547,874563456,32423,3122315};
         Bubblesort b = new Bubblesort();
-        long[] arr = b.run(thousandDigits);
+        Mergesort m = new Mergesort();
+        Quicksort q = new Quicksort();
+//        long[] arr = b.run(s);
+        long[] arr2 = m.run(sr);
+//        long[] arr3 = q.run(s);
+
+        System.out.println(arr2[0]);
     }
 
 

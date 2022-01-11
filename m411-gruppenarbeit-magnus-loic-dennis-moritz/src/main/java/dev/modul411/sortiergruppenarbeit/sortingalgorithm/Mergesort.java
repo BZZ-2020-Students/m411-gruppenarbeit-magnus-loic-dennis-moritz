@@ -2,6 +2,7 @@ package dev.modul411.sortiergruppenarbeit.sortingalgorithm;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalField;
 import java.util.Date;
 
 /**
@@ -27,15 +28,17 @@ public class Mergesort {
         long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
 
         //Measure time
-        Instant startTimeInstant = Instant.now().truncatedTo(ChronoUnit.MICROS);
-        long startTime = startTimeInstant.getNano();
+        Instant startTimeInstant = Instant.now().truncatedTo(ChronoUnit.NANOS);
+        long startTime = startTimeInstant.getNano() / 1000;
+        System.out.println(startTime);
 
         //sort
         int[] sortedARR = loop(unsortedArray);
 
         //End time
-        Instant endTimeInstant = Instant.now().truncatedTo(ChronoUnit.MICROS);
-        long endTime = endTimeInstant.getNano();
+        Instant endTimeInstant = Instant.now().truncatedTo(ChronoUnit.NANOS);
+        long endTime = endTimeInstant.getNano() / 1000;
+        System.out.println(endTime);
         System.out.println("Dauer der Sortierung: " + (endTime - startTime) + " mikrosekunden");
         measure[0] = endTime - startTime;
 
@@ -47,6 +50,12 @@ public class Mergesort {
         //Measure comparisons
         System.out.println("How many comparisons: " + count);
         measure[2] = count;
+
+
+        Instant test = Instant.now().truncatedTo(ChronoUnit.MICROS);
+        long testTime = test.getNano() / 1000;
+        System.out.println(testTime);
+
 
         return measure;
     }

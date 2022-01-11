@@ -30,14 +30,14 @@ public class Bubblesort {
 
         //Measure time
         Instant startTimeInstant = Instant.now().truncatedTo(ChronoUnit.MICROS);
-        long startTime = startTimeInstant.getNano();
+        long startTime = startTimeInstant.getNano() / 1000;
 
         //sort
         sort();
 
         //End time
         Instant endTimeInstant = Instant.now().truncatedTo(ChronoUnit.MICROS);
-        long endTime = endTimeInstant.getNano();
+        long endTime = endTimeInstant.getNano() / 1000;
         System.out.println("Dauer der Sortierung: " + (endTime - startTime) + " mikrosekunden");
         measure[0] = endTime - startTime;
 

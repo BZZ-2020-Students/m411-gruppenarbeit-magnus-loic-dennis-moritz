@@ -4,6 +4,8 @@ import dev.modul411.sortiergruppenarbeit.importexport.ExportFile;
 import dev.modul411.sortiergruppenarbeit.importexport.ImportFile;
 import dev.modul411.sortiergruppenarbeit.sortingalgorithm.Bubblesort;
 
+import java.util.ArrayList;
+
 /**
  * Main Class
  *
@@ -23,7 +25,18 @@ public class Main {
         hundredDigits = importFile.readLinesFromFile(pathPrefix + "100Digits.dat");
         thousandDigits = importFile.readLinesFromFile(pathPrefix + "1000Digits.dat");
         compareSortingAlgorithm();
-        ExportFile exportFile = new ExportFile("exportFile.csv", new String[]{"Bubblesort", "5GB", "100000", "5s"},new String[]{"Mergesort", "10MB", "120000", "5ms"},new String[]{"Quicksort", "10Byte", "50000", "2ms"});
+        ArrayList<String[]> values = new ArrayList<>();
+        values.add(new String[]{"Bubblesort", "10", "5GB", "1000", "5s"});
+        values.add(new String[]{"Bubblesort", "100", "15GB", "10000", "15s"});
+        values.add(new String[]{"Bubblesort", "1000", "150GB", "100000", "150s"});
+        values.add(new String[]{"Mergesort", "10", "5MB", "750", "1s"});
+        values.add(new String[]{"Mergesort", "100", "15MB", "800", "4s"});
+        values.add(new String[]{"Mergesort", "1000", "150MB", "850", "7s"});
+        values.add(new String[]{"Quicksort", "10", "5Byte", "250", "0.5s"});
+        values.add(new String[]{"Quicksort", "100", "15Byte", "350", "2s"});
+        values.add(new String[]{"Quicksort", "1000", "150Byte", "500", "3s"});
+
+        ExportFile exportFile = new ExportFile("exportFile.csv", values);
         exportFile.writeInCsvFile();
 
     }

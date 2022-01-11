@@ -1,6 +1,9 @@
 package dev.modul411.sortiergruppenarbeit.sortingalgorithm;
 
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import java.util.Timer;
 
 /**
  * @Author Magnus Götz
@@ -19,21 +22,22 @@ public class Quicksort {
     public long[] run(int[] unsortedArray) {
         long[] measure = new long[3];
         this.unsortedArray = unsortedArray;
-
         //Measure memory
         Runtime runtime = Runtime.getRuntime();
         long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
 
         //Measure time
-        long startTime;
-        startTime = new Date().getTime();
+        Instant startTimeInstant = Instant.now().truncatedTo(ChronoUnit.MICROS);
+        long startTime = startTimeInstant.getNano();
 
         sort(0, unsortedArray.length - 1);
 
-        System.out.println("Dauer der Sortierung: " + (new Date().getTime() - startTime) + "ms");
-        measure[0] = new Date().getTime() - startTime;
-        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+        Instant endTimeInstant = Instant.now().truncatedTo(ChronoUnit.MICROS);
+        long endTime = endTimeInstant.getNano();
+        System.out.println("Dauer der Sortierung: " + (endTime - startTime) + " mikrosekunden");
+        measure[0] = endTime - startTime;
 
+        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
         System.out.println("Memory increased: " + (usedMemoryAfter - usedMemoryBefore) + " byte");
         measure[1] = usedMemoryAfter - usedMemoryBefore;
 

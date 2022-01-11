@@ -3,6 +3,7 @@ package dev.modul411.sortiergruppenarbeit;
 import dev.modul411.sortiergruppenarbeit.importexport.ExportFile;
 import dev.modul411.sortiergruppenarbeit.importexport.ImportFile;
 import dev.modul411.sortiergruppenarbeit.sortingalgorithm.Bubblesort;
+import dev.modul411.sortiergruppenarbeit.sortingalgorithm.Quicksort;
 
 /**
  * Main Class

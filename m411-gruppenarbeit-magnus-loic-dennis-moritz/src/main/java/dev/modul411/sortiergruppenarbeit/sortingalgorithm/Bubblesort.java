@@ -1,5 +1,7 @@
 package dev.modul411.sortiergruppenarbeit.sortingalgorithm;
 
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 /**
@@ -27,15 +29,20 @@ public class Bubblesort {
         long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
 
         //Measure time
-        long startTime;
-        startTime = new Date().getTime();
+        Instant startTimeInstant = Instant.now().truncatedTo(ChronoUnit.MICROS);
+        long startTime = startTimeInstant.getNano();
 
+        //sort
         sort();
 
-        System.out.println("Dauer der Sortierung: " + (new Date().getTime() - startTime) + "ms");
-        measure[0] = new Date().getTime() - startTime;
-        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+        //End time
+        Instant endTimeInstant = Instant.now().truncatedTo(ChronoUnit.MICROS);
+        long endTime = endTimeInstant.getNano();
+        System.out.println("Dauer der Sortierung: " + (endTime - startTime) + " mikrosekunden");
+        measure[0] = endTime - startTime;
 
+        //End memory
+        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
         System.out.println("Memory increased: " + (usedMemoryAfter - usedMemoryBefore) + " byte");
         measure[1] = usedMemoryAfter - usedMemoryBefore;
 

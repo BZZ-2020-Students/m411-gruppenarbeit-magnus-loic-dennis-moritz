@@ -1,8 +1,12 @@
 package dev.modul411.sortiergruppenarbeit.sortingalgorithm;
 
+
+import dev.modul411.sortiergruppenarbeit.Measure;
+
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
-import java.util.Date;
+
+
 
 /**
  * Bubblesort Class
@@ -12,7 +16,7 @@ import java.util.Date;
  * @since 2022-01-04
  */
 
-public class Bubblesort {
+public class Bubblesort implements Sorter {
 
     private int[] unsortedArray;
     private int count = 0;
@@ -20,39 +24,17 @@ public class Bubblesort {
     public Bubblesort() {
     }
 
-    public long[] run(int[] unsortedArray) {
-        long[] measure = new long[3];
+    public void sort(int[] unsortedArray, Measure measure) {
+
         this.unsortedArray = unsortedArray;
 
-        //Measure memory
-        Runtime runtime = Runtime.getRuntime();
-        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
-
-        //Measure time
-        Instant startTimeInstant = Instant.now().truncatedTo(ChronoUnit.MICROS);
-        long startTime = startTimeInstant.getNano() / 1000;
-
         //sort
-        sort();
-
-        //End time
-        Instant endTimeInstant = Instant.now().truncatedTo(ChronoUnit.MICROS);
-        long endTime = endTimeInstant.getNano() / 1000;
-        System.out.println("Dauer der Sortierung: " + (endTime - startTime) + " mikrosekunden");
-        measure[0] = endTime - startTime;
-
-        //End memory
-        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
-        System.out.println("Memory increased: " + (usedMemoryAfter - usedMemoryBefore) + " byte");
-        measure[1] = usedMemoryAfter - usedMemoryBefore;
-
-        //Measure comparisons
-        System.out.println("How many comparisons: " + count);
-        measure[2] = count;
-        return measure;
+        sorting();
+        measure.setComparison(count);
+        measure.setSortedArray(unsortedArray);
     }
 
-    private void sort() {
+    private void sorting() {
         boolean finish;
         for (int a = 0; a < unsortedArray.length - 1; a++) {
             finish = true;

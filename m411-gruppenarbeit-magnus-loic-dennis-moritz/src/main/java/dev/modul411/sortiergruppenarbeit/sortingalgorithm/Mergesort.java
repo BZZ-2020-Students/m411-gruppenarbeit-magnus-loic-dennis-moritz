@@ -1,5 +1,7 @@
 package dev.modul411.sortiergruppenarbeit.sortingalgorithm;
 
+import dev.modul411.sortiergruppenarbeit.Measure;
+
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalField;
@@ -12,52 +14,18 @@ import java.util.Date;
  */
 
 
-public class Mergesort {
-    private int[] unsortedArray;
+public class Mergesort implements Sorter {
     private int count = 0;
 
     public Mergesort() {
     }
 
-    public long[] run(int[] unsortedArray) {
-        long[] measure = new long[3];
-        this.unsortedArray = unsortedArray;
-
-        //Measure memory
-        Runtime runtime = Runtime.getRuntime();
-        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
-
-        //Measure time
-        Instant startTimeInstant = Instant.now().truncatedTo(ChronoUnit.NANOS);
-        long startTime = startTimeInstant.getNano() / 1000;
-        System.out.println(startTime);
-
+    public void sort(int[] unsortedArray, Measure measure) {
         //sort
         int[] sortedARR = loop(unsortedArray);
 
-        //End time
-        Instant endTimeInstant = Instant.now().truncatedTo(ChronoUnit.NANOS);
-        long endTime = endTimeInstant.getNano() / 1000;
-        System.out.println(endTime);
-        System.out.println("Dauer der Sortierung: " + (endTime - startTime) + " mikrosekunden");
-        measure[0] = endTime - startTime;
-
-        //End memory
-        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
-        System.out.println("Memory increased: " + (usedMemoryAfter - usedMemoryBefore) + " byte");
-        measure[1] = usedMemoryAfter - usedMemoryBefore;
-
-        //Measure comparisons
-        System.out.println("How many comparisons: " + count);
-        measure[2] = count;
-
-
-        Instant test = Instant.now().truncatedTo(ChronoUnit.MICROS);
-        long testTime = test.getNano() / 1000;
-        System.out.println(testTime);
-
-
-        return measure;
+        measure.setComparison(count);
+        measure.setSortedArray(sortedARR);
     }
 
     public int[] loop(int[] unsortedArray) {

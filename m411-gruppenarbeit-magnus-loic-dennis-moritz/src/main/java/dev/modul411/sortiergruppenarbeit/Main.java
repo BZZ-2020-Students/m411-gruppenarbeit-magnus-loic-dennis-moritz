@@ -23,6 +23,9 @@ public class Main {
 
     public Main() {
         ImportFile importFile = new ImportFile();
+
+        System.out.println("Working Directory = " + System.getProperty("user.dir"));
+
         digitArrays.add(importFile.readLinesFromFile(pathPrefix + "10Digits.dat"));
         digitArrays.add(importFile.readLinesFromFile(pathPrefix + "100Digits.dat"));
         digitArrays.add(importFile.readLinesFromFile(pathPrefix + "1000Digits.dat"));

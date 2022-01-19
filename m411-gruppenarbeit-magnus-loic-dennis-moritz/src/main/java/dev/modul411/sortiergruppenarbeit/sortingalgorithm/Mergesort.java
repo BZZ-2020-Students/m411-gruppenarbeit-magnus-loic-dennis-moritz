@@ -3,7 +3,7 @@ package dev.modul411.sortiergruppenarbeit.sortingalgorithm;
 import dev.modul411.sortiergruppenarbeit.Measure;
 
 /**
- * @Author Magnus Götz
+ * @Author Magnus Götz, Moritz Gasbichler
  * @Since 2022-01-04
  * @Version 1.0
  */

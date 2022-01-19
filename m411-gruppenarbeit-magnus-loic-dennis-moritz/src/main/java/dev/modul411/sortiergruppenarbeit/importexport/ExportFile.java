@@ -17,10 +17,6 @@ public class ExportFile {
     private String filemame;
     private ArrayList<String[]> sortingValues;
 
-    public ExportFile(String filename) {
-        this.filemame = filename;
-    }
-
     public ExportFile(String filename, ArrayList<String[]> sortingValues) {
         this.filemame = filename;
         this.sortingValues = sortingValues;
@@ -28,12 +24,11 @@ public class ExportFile {
 
     public void writeInCsvFile() {
         //TODO Get real data not just testdata
-        System.out.println("!! EXPORT JUST WORKING WITH TEST DATA !!");
         File file = new File(filemame);
         try {
             FileWriter outputfile = new FileWriter(file);
             CSVWriter writer = new CSVWriter(outputfile);
-            String[] header = {"Sorting algorithm", "Memory used", "Comparisons", "Time needed"};
+            String[] header = {"Sortingalgorithm", "Memory used", "Comparisons done", "Time needed in seconds"};
             writer.writeNext(header);
             for (String[] s : sortingValues) {
                 writer.writeNext(s);

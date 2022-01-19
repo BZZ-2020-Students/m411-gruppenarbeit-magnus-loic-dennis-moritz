@@ -7,7 +7,7 @@ import dev.modul411.sortiergruppenarbeit.Measure;
 /**
  * Bubblesort Class
  *
- * @author Magnus Götz
+ * @author Magnus Götz, Moritz Gasbichler
  * @version 1.0
  * @since 2022-01-04
  */

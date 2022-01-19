@@ -2,11 +2,6 @@ package dev.modul411.sortiergruppenarbeit.sortingalgorithm;
 
 import dev.modul411.sortiergruppenarbeit.Measure;
 
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
-import java.util.Date;
-import java.util.Timer;
-
 /**
  * @Author Magnus Götz
  * @Since 2022-01-04
@@ -18,14 +13,20 @@ public class Quicksort implements Sorter {
     private int[] unsortedArray;
     private int count = 0;
 
+    @Override
     public void sort(int[] unsortedArray, Measure measure) {
-       this.unsortedArray = unsortedArray;
+        this.unsortedArray = unsortedArray;
 
         //sort
         sorting(0, unsortedArray.length - 1);
 
         measure.setComparison(count);
         measure.setSortedArray(unsortedArray);
+    }
+
+    @Override
+    public String getAlgorithmName() {
+        return "Quicksort";
     }
 
     private void sorting(int leftPos, int rightPos) {
@@ -67,5 +68,6 @@ public class Quicksort implements Sorter {
         unsortedArray[leftPos] = temp;
     }
 
-    public Quicksort(){}
+    public Quicksort() {
+    }
 }

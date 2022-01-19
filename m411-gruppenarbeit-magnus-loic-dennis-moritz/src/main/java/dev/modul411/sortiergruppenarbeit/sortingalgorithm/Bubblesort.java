@@ -3,10 +3,6 @@ package dev.modul411.sortiergruppenarbeit.sortingalgorithm;
 
 import dev.modul411.sortiergruppenarbeit.Measure;
 
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
-
-
 
 /**
  * Bubblesort Class
@@ -24,6 +20,7 @@ public class Bubblesort implements Sorter {
     public Bubblesort() {
     }
 
+    @Override
     public void sort(int[] unsortedArray, Measure measure) {
 
         this.unsortedArray = unsortedArray;
@@ -32,6 +29,11 @@ public class Bubblesort implements Sorter {
         sorting();
         measure.setComparison(count);
         measure.setSortedArray(unsortedArray);
+    }
+
+    @Override
+    public String getAlgorithmName() {
+        return "Bubblesort";
     }
 
     private void sorting() {

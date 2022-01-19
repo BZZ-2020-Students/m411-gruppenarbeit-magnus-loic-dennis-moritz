@@ -2,11 +2,6 @@ package dev.modul411.sortiergruppenarbeit.sortingalgorithm;
 
 import dev.modul411.sortiergruppenarbeit.Measure;
 
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalField;
-import java.util.Date;
-
 /**
  * @Author Magnus Götz
  * @Since 2022-01-04
@@ -20,12 +15,18 @@ public class Mergesort implements Sorter {
     public Mergesort() {
     }
 
+    @Override
     public void sort(int[] unsortedArray, Measure measure) {
         //sort
         int[] sortedARR = loop(unsortedArray);
 
         measure.setComparison(count);
         measure.setSortedArray(sortedARR);
+    }
+
+    @Override
+    public String getAlgorithmName() {
+        return "Mergesort";
     }
 
     public int[] loop(int[] unsortedArray) {

@@ -41,7 +41,7 @@ public class Main {
         for (int[] valuesToSort : digitArrays) {
             for (Sorter algorithmtoSort : sortingAlgorithm) {
                 sort.sort(algorithmtoSort, valuesToSort, measure);
-                values.add(new String[]{algorithmtoSort.getAlgorithmName() + " - " + (valuesToSort.length + 1), String.valueOf(measure.getMemory()), String.valueOf(measure.getComparison()), String.valueOf(measure.getTime() / 1_000_000f)});
+                values.add(new String[]{algorithmtoSort.getAlgorithmName() + " - " + valuesToSort.length, String.valueOf(measure.getMemory()), String.valueOf(measure.getComparison()), String.valueOf(measure.getTime() / 1_000_000f)});
             }
         }
         return values;

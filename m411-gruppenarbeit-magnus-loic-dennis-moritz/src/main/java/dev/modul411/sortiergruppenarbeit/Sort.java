@@ -2,6 +2,12 @@ package dev.modul411.sortiergruppenarbeit;
 
 import dev.modul411.sortiergruppenarbeit.sortingalgorithm.Sorter;
 
+/**
+ * @Author Magnus Götz
+ * @Since 2022-01-04
+ * @Version 1.0
+ */
+
 public class Sort<T extends Sorter> {
     public void sort(T sorter, int[] unsortedArray, Measure measure){
 

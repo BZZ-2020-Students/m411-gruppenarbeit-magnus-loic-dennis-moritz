@@ -1,4 +1,5 @@
 "Sortingalgorithm","Memory used","Comparisons done","Time needed in seconds"
+<<<<<<< Updated upstream
 "Bubblesort - 10","0","30","0.0102"
 "Mergesort - 10","0","10","0.0096"
 "Quicksort - 10","0","45","0.0092"
@@ -8,3 +9,14 @@
 "Bubblesort - 1000","0","503885","6.3465"
 "Mergesort - 1000","0","1110","2.2952"
 "Quicksort - 1000","0","484836","2.6773"
+=======
+"Bubblesort - 11","0","30","0.0097"
+"Mergesort - 11","0","10","0.0094"
+"Quicksort - 11","0","45","0.0076"
+"Bubblesort - 100","0","4286","0.1801"
+"Mergesort - 100","0","109","0.079"
+"Quicksort - 100","0","4896","0.111"
+"Bubblesort - 1000","0","502787","6.3042"
+"Mergesort - 1000","0","1108","2.0631"
+"Quicksort - 1000","0","484352","2.339"
+>>>>>>> Stashed changes

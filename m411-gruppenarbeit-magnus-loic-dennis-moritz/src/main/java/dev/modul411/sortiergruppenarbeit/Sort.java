@@ -9,7 +9,12 @@ import dev.modul411.sortiergruppenarbeit.sortingalgorithm.Sorter;
  */
 
 public class Sort<T extends Sorter> {
-    public void sort(T sorter, int[] unsortedArray, Measure measure){
+    /**
+     * @param sorter
+     * @param unsortedArray
+     * @param measure
+     */
+    public void sort(T sorter, int[] unsortedArray, Measure measure) {
 
         //Measure memory
         Runtime runtime = Runtime.getRuntime();

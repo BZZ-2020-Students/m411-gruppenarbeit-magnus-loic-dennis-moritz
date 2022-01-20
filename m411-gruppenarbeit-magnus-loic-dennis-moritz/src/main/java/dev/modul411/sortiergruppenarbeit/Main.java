@@ -21,6 +21,9 @@ public class Main {
     private ArrayList<int[]> digitArrays = new ArrayList<>();
     private ArrayList<Sorter> sortingAlgorithm = new ArrayList<>();
 
+    /**
+     * Default constructor handles import & sorting and export
+     */
     public Main() {
         ImportFile importFile = new ImportFile();
         digitArrays.add(importFile.readLinesFromFile(pathPrefix + "10Digits.dat"));
@@ -34,6 +37,11 @@ public class Main {
 
     }
 
+    /**
+     * This method handles the sorting of the three arrays for the three algorithms
+     *
+     * @return an ArrayList with all values from the algorithms ready to write them to the csv file
+     */
     public ArrayList<String[]> compareSortingAlgorithm() {
         Measure measure = new Measure();
         Sort sort = new Sort();
@@ -41,13 +49,12 @@ public class Main {
         for (int[] valuesToSort : digitArrays) {
             for (Sorter algorithmtoSort : sortingAlgorithm) {
                 sort.sort(algorithmtoSort, valuesToSort, measure);
-                values.add(new String[]{algorithmtoSort.getAlgorithmName() + " - " + (valuesToSort.length + 1), String.valueOf(measure.getMemory()), String.valueOf(measure.getComparison()), String.valueOf(measure.getTime() / 1_000_000_000f)});
+                values.add(new String[]{algorithmtoSort.getAlgorithmName() + " - " + (valuesToSort.length + 1), String.valueOf(measure.getMemory()), String.valueOf(measure.getComparison()), String.valueOf(measure.getTime() / 1_000_000f)});
             }
         }
         return values;
     }
-
-
+    
     public static void main(String[] args) {
         new Main();
     }

@@ -52,7 +52,7 @@ public class Mergesort implements Sorter {
     public int[] loop(int[] unsortedArray) {
         for (int start = 0; start < unsortedArray.length; ++start) {
             countIteration++;
-            int minIndex = findTheMiniIndex(unsortedArray, start);
+            int minIndex = findTheMinIndex(unsortedArray, start);
             swap(unsortedArray, minIndex, start);
         }
         return unsortedArray;
@@ -63,7 +63,7 @@ public class Mergesort implements Sorter {
      * @param start position on which the algorithm should start
      * @return smallest index
      */
-    public int findTheMiniIndex(int[] arr, int start) {
+    public int findTheMinIndex(int[] arr, int start) {
         int index = start;
         for (int i = start + 1; i < arr.length; ++i) {
             countComparison++;

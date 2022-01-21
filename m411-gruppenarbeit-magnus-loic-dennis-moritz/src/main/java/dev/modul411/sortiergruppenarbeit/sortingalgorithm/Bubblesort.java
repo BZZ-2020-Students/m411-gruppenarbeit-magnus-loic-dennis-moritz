@@ -27,7 +27,7 @@ public class Bubblesort implements Sorter {
      * Executes the bubblesort
      *
      * @param unsortedArray the array which will be sorted
-     * @param measure       to measure the different informations about the bubblesort
+     * @param measure       to measure the different information about the bubblesort
      */
     @Override
     public void sort(int[] unsortedArray, Measure measure) {

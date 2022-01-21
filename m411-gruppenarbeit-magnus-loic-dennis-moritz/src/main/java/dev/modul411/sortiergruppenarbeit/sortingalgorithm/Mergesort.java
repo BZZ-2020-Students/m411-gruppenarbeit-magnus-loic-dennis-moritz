@@ -24,7 +24,7 @@ public class Mergesort implements Sorter {
      * Handels the sorting with the mergesort
      *
      * @param unsortedArray the array which will be sorted
-     * @param measure       to measure the different informations about the mergeosrt
+     * @param measure       to measure the different information about the mergeosrt
      */
     @Override
     public void sort(int[] unsortedArray, Measure measure) {

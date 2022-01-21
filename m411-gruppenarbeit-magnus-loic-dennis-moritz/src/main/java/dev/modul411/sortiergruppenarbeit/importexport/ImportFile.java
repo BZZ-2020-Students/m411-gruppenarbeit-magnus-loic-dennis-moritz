@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.stream.Stream;
 
 /**
- * Imports the *.dat files into the programm
+ * Imports the *.dat files into the program
  *
  * @Author Moritz Gasbichler
  * @Since 2022-01-04

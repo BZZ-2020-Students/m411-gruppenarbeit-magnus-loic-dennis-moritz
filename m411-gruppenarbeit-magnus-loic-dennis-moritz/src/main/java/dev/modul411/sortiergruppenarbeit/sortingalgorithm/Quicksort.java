@@ -25,7 +25,7 @@ public class Quicksort implements Sorter {
      * Handels the sorting with the quicksort
      *
      * @param unsortedArray the array which will be sorted
-     * @param measure       to measure the different informations about the quicksort
+     * @param measure       to measure the different information about the quicksort
      */
     @Override
     public void sort(int[] unsortedArray, Measure measure) {

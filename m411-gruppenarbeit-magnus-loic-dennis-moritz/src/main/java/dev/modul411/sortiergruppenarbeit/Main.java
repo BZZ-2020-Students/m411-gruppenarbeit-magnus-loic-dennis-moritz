@@ -43,18 +43,19 @@ public class Main {
      * @return an ArrayList with all values from the algorithms ready to write them to the csv file
      */
     public ArrayList<String[]> compareSortingAlgorithm() {
-        Measure measure = new Measure();
-        Sort sort = new Sort();
+
         ArrayList<String[]> values = new ArrayList<>();
         for (int[] valuesToSort : digitArrays) {
             for (Sorter algorithmtoSort : sortingAlgorithm) {
+                Measure measure = new Measure();
+                Sort sort = new Sort();
                 sort.sort(algorithmtoSort, valuesToSort, measure);
-                values.add(new String[]{algorithmtoSort.getAlgorithmName() + " - " + (valuesToSort.length + 1), String.valueOf(measure.getMemory()), String.valueOf(measure.getComparison()), String.valueOf(measure.getTime() / 1_000_000f)});
+                values.add(new String[]{algorithmtoSort.getAlgorithmName() + " - " + valuesToSort.length, String.valueOf(measure.getMemory()), String.valueOf(measure.getComparison()), String.valueOf(measure.getTime() / 1_000_000f)});
             }
         }
         return values;
     }
-    
+
     public static void main(String[] args) {
         new Main();
     }

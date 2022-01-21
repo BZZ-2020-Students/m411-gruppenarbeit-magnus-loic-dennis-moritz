@@ -3,6 +3,8 @@ package dev.modul411.sortiergruppenarbeit;
 import dev.modul411.sortiergruppenarbeit.sortingalgorithm.Sorter;
 
 /**
+ * Sort class manage the Measurements with wich Sorter
+ *
  * @Author Magnus Götz
  * @Since 2022-01-04
  * @Version 1.0
@@ -10,9 +12,11 @@ import dev.modul411.sortiergruppenarbeit.sortingalgorithm.Sorter;
 
 public class Sort<T extends Sorter> {
     /**
-     * @param sorter
-     * @param unsortedArray
-     * @param measure
+     * Handels the Measurements with wich Sorter
+     *
+     * @param sorter        with which sorter is sorted
+     * @param unsortedArray the array which will be sorted
+     * @param measure       to measure the different informations about the mergeosrt
      */
     public void sort(T sorter, int[] unsortedArray, Measure measure) {
 

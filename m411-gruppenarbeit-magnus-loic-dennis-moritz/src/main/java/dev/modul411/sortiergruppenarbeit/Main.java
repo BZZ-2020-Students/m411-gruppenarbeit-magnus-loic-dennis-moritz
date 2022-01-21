@@ -50,7 +50,7 @@ public class Main {
                 Measure measure = new Measure();
                 Sort sort = new Sort();
                 sort.sort(algorithmtoSort, valuesToSort, measure);
-                values.add(new String[]{algorithmtoSort.getAlgorithmName() + " - " + valuesToSort.length, String.valueOf(measure.getMemory()), String.valueOf(measure.getComparison()), String.valueOf(measure.getTime() / 1_000_000f)});
+                values.add(new String[]{algorithmtoSort.getAlgorithmName() + " - " + valuesToSort.length, String.valueOf(measure.getIterations()), String.valueOf(measure.getComparison()), String.valueOf(measure.getTime() / 1_000_000f)});
             }
         }
         return values;

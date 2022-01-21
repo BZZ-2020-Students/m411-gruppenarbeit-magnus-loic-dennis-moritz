@@ -36,7 +36,7 @@ public class ExportFile {
         try {
             FileWriter outputfile = new FileWriter(file);
             CSVWriter writer = new CSVWriter(outputfile);
-            String[] header = {"Sortingalgorithm", "Memory used", "Comparisons done", "Time needed in milliseconds"};
+            String[] header = {"Sortingalgorithm", "Iterations done", "Comparisons done", "Time needed in milliseconds"};
             writer.writeNext(header);
             for (String[] s : sortedValues) {
                 writer.writeNext(s);

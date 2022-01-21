@@ -15,7 +15,9 @@ import dev.modul411.sortiergruppenarbeit.Measure;
 public class Bubblesort implements Sorter {
 
     private int[] unsortedArray;
-    private int count = 0;
+    private int countComparison = 0;
+    private int countIteration = 0;
+
 
     /**
      * Default constructor
@@ -36,7 +38,8 @@ public class Bubblesort implements Sorter {
 
         //sort
         sorting();
-        measure.setComparison(count);
+        measure.setComparison(countComparison);
+        measure.setIterations(countIteration);
         measure.setSortedArray(unsortedArray);
     }
 
@@ -54,9 +57,10 @@ public class Bubblesort implements Sorter {
     private void sorting() {
         boolean finish;
         for (int a = 0; a < unsortedArray.length - 1; a++) {
+            countIteration++;
             finish = true;
             for (int b = 0; b < unsortedArray.length - a - 1; b++) {
-                count++;
+                countComparison++;
                 if (unsortedArray[b] > unsortedArray[b + 1]) {
                     int temp = unsortedArray[b];
                     unsortedArray[b] = unsortedArray[b + 1];

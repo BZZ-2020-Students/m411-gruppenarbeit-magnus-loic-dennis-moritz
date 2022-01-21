@@ -46,17 +46,17 @@ public class Quicksort implements Sorter {
         return "Quicksort";
     }
 
-    /**
-     * @param leftPos
-     * @param rightPos
-     */
-    public Quicksort(int leftPos, int rightPos) {
-        if (leftPos < rightPos) {
-            int middlePos = split(leftPos, rightPos);
-            new Quicksort(leftPos, middlePos - 1);
-            new Quicksort(middlePos + 1, rightPos);
-        }
-    }
+//    /**
+//     * @param leftPos
+//     * @param rightPos
+//     */
+//    public Quicksort(int leftPos, int rightPos) {
+//        if (leftPos < rightPos) {
+//            int middlePos = split(leftPos, rightPos);
+//            new Quicksort(leftPos, middlePos - 1);
+//            new Quicksort(middlePos + 1, rightPos);
+//        }
+//    }
 
     /**
      * @param leftPos

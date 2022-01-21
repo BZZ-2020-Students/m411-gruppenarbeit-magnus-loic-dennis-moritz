@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
+ * Exports the data gathered form the algorithm to a *.csv file
+ *
  * @Author Moritz Gasbichler
  * @Since 2022-01-04
  * @Version 1.0
@@ -15,27 +17,28 @@ import java.util.ArrayList;
 
 public class ExportFile {
     private String filemame;
-    private ArrayList<String[]> sortingValues;
+    private ArrayList<String[]> sortedValues;
 
-    public ExportFile(String filename) {
-        this.filemame = filename;
-    }
-
+    /**
+     * @param filename      of the *.csv file
+     * @param sortingValues the ArrayList of all String arrays with the values
+     */
     public ExportFile(String filename, ArrayList<String[]> sortingValues) {
         this.filemame = filename;
-        this.sortingValues = sortingValues;
+        this.sortedValues = sortingValues;
     }
 
+    /**
+     * Creates a *.csv file and fills the values into the file.
+     */
     public void writeInCsvFile() {
-        //TODO Get real data not just testdata
-        System.out.println("!! EXPORT JUST WORKING WITH TEST DATA !!");
         File file = new File(filemame);
         try {
             FileWriter outputfile = new FileWriter(file);
             CSVWriter writer = new CSVWriter(outputfile);
-            String[] header = {"Sorting algorithm", "Amount of entries", "Memory used", "Comparisons", "Time needed"};
+            String[] header = {"Sortingalgorithm", "Memory used", "Comparisons done", "Time needed in milliseconds"};
             writer.writeNext(header);
-            for (String[] s : sortingValues) {
+            for (String[] s : sortedValues) {
                 writer.writeNext(s);
             }
             writer.close();
@@ -44,12 +47,32 @@ public class ExportFile {
         }
     }
 
+    /**
+     * @return the filename
+     */
     public String getFilemame() {
         return filemame;
     }
 
+    /**
+     * @param filemame for the new csv file
+     */
     public void setFilemame(String filemame) {
         this.filemame = filemame;
+    }
+
+    /**
+     * @return the sorted values which will be written to the file
+     */
+    public ArrayList<String[]> getSortedValues() {
+        return sortedValues;
+    }
+
+    /**
+     * @param sortedValues which will be written to the file
+     */
+    public void setSortedValues(ArrayList<String[]> sortedValues) {
+        this.sortedValues = sortedValues;
     }
 
 }

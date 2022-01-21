@@ -9,7 +9,7 @@ package dev.modul411.sortiergruppenarbeit;
  */
 public class Measure {
     private long time;
-    private long memory;
+    private long iterations;
     private long comparison;
     private int[] sortedArray;
 
@@ -34,17 +34,17 @@ public class Measure {
     }
 
     /**
-     * @return the memory used by the algorithm
+     * @return the iterations done by the algorithm
      */
-    public long getMemory() {
-        return memory;
+    public long getIterations() {
+        return iterations;
     }
 
     /**
-     * @param memory
+     * @param iterations sets the amount of iterations done by the algorithm
      */
-    public void setMemory(long memory) {
-        this.memory = memory;
+    public void setIterations(long iterations) {
+        this.iterations = iterations;
     }
 
     /**

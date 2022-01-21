@@ -13,7 +13,8 @@ import dev.modul411.sortiergruppenarbeit.Measure;
 public class Quicksort implements Sorter {
 
     private int[] unsortedArray;
-    private int count = 0;
+    private int countComparison = 0;
+    private int countIteration = 0;
 
     /**
      * Default constructor
@@ -34,7 +35,8 @@ public class Quicksort implements Sorter {
         //sort
         sorting(0, unsortedArray.length - 1);
 
-        measure.setComparison(count);
+        measure.setComparison(countComparison);
+        measure.setIterations(countIteration);
         measure.setSortedArray(unsortedArray);
     }
 
@@ -46,21 +48,10 @@ public class Quicksort implements Sorter {
         return "Quicksort";
     }
 
-//    /**
-//     * @param leftPos
-//     * @param rightPos
-//     */
-//    public Quicksort(int leftPos, int rightPos) {
-//        if (leftPos < rightPos) {
-//            int middlePos = split(leftPos, rightPos);
-//            new Quicksort(leftPos, middlePos - 1);
-//            new Quicksort(middlePos + 1, rightPos);
-//        }
-//    }
 
     /**
-     * @param leftPos
-     * @param rightPos
+     * @param leftPos  the starting position
+     * @param rightPos the ending position
      */
     private void sorting(int leftPos, int rightPos) {
         if (leftPos < rightPos) {
@@ -68,17 +59,18 @@ public class Quicksort implements Sorter {
             sorting(leftPos, middlePos - 1);
             sorting(middlePos + 1, rightPos);
         }
+        countIteration++;
     }
 
     /**
-     * @param leftPos
-     * @param rightPos
-     * @return
+     * @param leftPos  the starting position
+     * @param rightPos the ending position
+     * @return the ending position
      */
     public int split(int leftPos, int rightPos) {
         int pivotPos = leftPos;
         while (leftPos < rightPos) {
-            count++;
+            countComparison++;
             if (unsortedArray[rightPos] > unsortedArray[pivotPos]) {
                 rightPos--;
             } else {
@@ -93,14 +85,13 @@ public class Quicksort implements Sorter {
     }
 
     /**
-     * @param leftPos
-     * @param rightPos
+     * @param leftPos  the first position for swapping
+     * @param rightPos the second position for swapping
      */
     public void swap(int leftPos, int rightPos) {
         int temp = unsortedArray[rightPos];
         unsortedArray[rightPos] = unsortedArray[leftPos];
         unsortedArray[leftPos] = temp;
     }
-
 
 }

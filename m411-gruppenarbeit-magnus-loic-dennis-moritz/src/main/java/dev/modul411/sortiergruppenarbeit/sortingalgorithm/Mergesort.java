@@ -12,7 +12,8 @@ import dev.modul411.sortiergruppenarbeit.Measure;
 
 
 public class Mergesort implements Sorter {
-    private int count = 0;
+    private int countComparison = 0;
+    private int countIteration = 0;
 
     /**
      * Default constructor
@@ -29,10 +30,11 @@ public class Mergesort implements Sorter {
     @Override
     public void sort(int[] unsortedArray, Measure measure) {
         //sort
-        int[] sortedARR = loop(unsortedArray);
+        int[] sortedArray = loop(unsortedArray);
 
-        measure.setComparison(count);
-        measure.setSortedArray(sortedARR);
+        measure.setComparison(countComparison);
+        measure.setIterations(countIteration);
+        measure.setSortedArray(sortedArray);
     }
 
     /**
@@ -44,12 +46,12 @@ public class Mergesort implements Sorter {
     }
 
     /**
-     * @param unsortedArray
-     * @return
+     * @param unsortedArray the array which will be sorted
+     * @return the sorted array
      */
     public int[] loop(int[] unsortedArray) {
         for (int start = 0; start < unsortedArray.length; ++start) {
-            count++;
+            countIteration++;
             int minIndex = findTheMiniIndex(unsortedArray, start);
             swap(unsortedArray, minIndex, start);
         }
@@ -57,13 +59,14 @@ public class Mergesort implements Sorter {
     }
 
     /**
-     * @param arr
-     * @param start
-     * @return
+     * @param arr   the array
+     * @param start position on which the algorithm should start
+     * @return smallest index
      */
     public int findTheMiniIndex(int[] arr, int start) {
         int index = start;
         for (int i = start + 1; i < arr.length; ++i) {
+            countComparison++;
             if (arr[index] > arr[i]) {
                 index = i;
             }
@@ -72,9 +75,9 @@ public class Mergesort implements Sorter {
     }
 
     /**
-     * @param swapValOfArr
-     * @param minIndex
-     * @param start
+     * @param swapValOfArr the array in which the values should be swapped
+     * @param minIndex     the first index
+     * @param start        the second index
      */
     public void swap(int[] swapValOfArr, int minIndex, int start) {
         int temp = swapValOfArr[minIndex];
